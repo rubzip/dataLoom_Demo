@@ -3,7 +3,7 @@ import pandas as pd
 from fun import select, get_numeric_cols, get_min_max, filter_number, dropna, group, info, describe
 
 st.title("DataLoom PoC 💡")
-data = pd.read_csv("./Titanic-Dataset.csv")
+data = pd.read_csv("./data/Titanic-Dataset.csv")
 st.markdown("""
     <style>
         .reportview-container .main .block-container {
