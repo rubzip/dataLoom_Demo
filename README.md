@@ -29,6 +29,7 @@ To get started with Dataloom, follow these steps:
 ## Usage 📝
 
 Yet, Dataloom has a simple interface where you can apply simple SQL functions as Select, Filter, GroupBy, and find most important information.
+![image](https://github.com/rubzip/dataLoom_Demo/blob/main/imgs/img1.png)
 
 ## Contact 📧
 
