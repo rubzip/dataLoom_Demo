@@ -33,5 +33,6 @@ Yet, Dataloom has a simple interface where you can apply simple SQL functions as
 ## Contact 📧
 
 For any inquiries or feedback, please contact [rubgij@gmail.com](mailto:rubgij@gmail.com).
-Rubén Gijón Cañete
+
+Rubén Gijón
 ---
