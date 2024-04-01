@@ -16,8 +16,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-dataset = st.empty()
 main_block = st.empty()
+dataset = st.empty()
 col1, col2 = st.columns(2)
 
 with main_block:
