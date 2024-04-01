@@ -10,12 +10,12 @@ The goal of Dataloom is to provide users with a user-friendly interface that all
 
 ## Features 🚀
 
-[x] **Web-based GUI**: Access Dataloom from any web browser, enabling users to work with their datasets anytime, anywhere.
-[] **Dataset Upload**: Easily upload tabular datasets to the platform for analysis and manipulation.
-[x] **Pandas Functionality**: Utilize intuitive pandas functionalities for tasks like filtering, sorting, and transformation.
-[x] **Real-time Previews**: Instantly preview changes to datasets as you make them, enhancing the interactive experience.
-[] **Backend based on FastAPI**: TODO.
-[] **Frontend based on JavaScript**: TODO, PoC was done using Streamlit.
+ - [x] **Web-based GUI**: Access Dataloom from any web browser, enabling users to work with their datasets anytime, anywhere.
+ - [ ] **Dataset Upload**: Easily upload tabular datasets to the platform for analysis and manipulation.
+ - [x] **Pandas Functionality**: Utilize intuitive pandas functionalities for tasks like filtering, sorting, and transformation.
+ - [x] **Real-time Previews**: Instantly preview changes to datasets as you make them, enhancing the interactive experience.
+ - [ ] **Backend based on FastAPI**: TODO.
+ - [ ] **Frontend based on JavaScript**: TODO, PoC was done using Streamlit.
 
 ## Getting Started 🛠️
 
