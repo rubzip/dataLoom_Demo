@@ -4,44 +4,27 @@ from fun import select, get_numeric_cols, get_min_max, filter_number, dropna, gr
 
 st.title("DataLoom PoC 💡")
 data = pd.read_csv("./data/Titanic-Dataset.csv")
-st.markdown("""
-    <style>
-        .reportview-container .main .block-container {
-            max-width: 1200px;
-            padding-top: 2rem;
-            padding-right: 2rem;
-            padding-left: 2rem;
-            padding-bottom: 3rem;
-        }
-    </style>
-""", unsafe_allow_html=True)
 
-main_block = st.empty()
-dataset = st.empty()
-col1, col2 = st.columns(2)
+st.sidebar.title("Filtering Options")
 
-with main_block:
-    all_cols = list(data.columns)
-    select_cols = st.multiselect('SELECT columns:', all_cols, default=all_cols)
-    out = select(data, select_cols)
+all_cols = list(data.columns)
+select_cols = st.sidebar.multiselect('SELECT columns:', all_cols, default=all_cols)
+out = select(data, select_cols)
+st.sidebar.write("Filter:")
+num_cols = get_numeric_cols(out)
+for col in num_cols:
+    mini, maxi = get_min_max(out, col)
+    start_num, end_num = st.sidebar.slider(col, min_value=mini, max_value=maxi, value=(mini, maxi))
+    out = filter_number(out, col, start_num, end_num)
 
-with col1:
-    st.write("Filter:")
-    num_cols = get_numeric_cols(out)
-    for col in num_cols:
-        mini, maxi = get_min_max(out, col)
-        start_num, end_num = st.slider(col, min_value=mini, max_value=maxi, value=(mini, maxi))
-        out = filter_number(out, col, start_num, end_num)
+all_cols = list(out.columns)
+by = st.sidebar.multiselect('Group By:', all_cols, default=[])
+if len(by)>0:
+    funcs = st.sidebar.multiselect('Functions:', ['sum', 'min', 'max'], default=['sum'])
+    out = group(out, by, funcs)
 
-    all_cols = list(out.columns)
-    by = st.multiselect('Group By:', all_cols, default=[])
-    if len(by)>0:
-        funcs = st.multiselect('Functions:', ['sum', 'min', 'max'], default=['sum'])
-        out = group(out, by, funcs)
-
-dataset.write(out)
-
-with col2:
-    st.write(describe(out))
-    if len(by)==0:
-        st.write(info(out))
+st.title("")
+st.write(out)
+st.write(describe(out))
+if len(by)==0:
+    st.write(info(out))
